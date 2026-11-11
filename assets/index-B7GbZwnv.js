@@ -82,10 +82,19 @@ Please change the parent <Route path="${R}"> to <Route path="${R==="/"?"*":`${R}
       }),
       A.jsx("div", {
         "code-path": "src/sections/Events.tsx:16:7",
-        className: "relative mx-auto flex max-w-md flex-col gap-14",
-        style: { position: "relative", zIndex: 10 },
-        children: st.events.map((n, idx) =>
-          A.jsxs(We, {
+        className: "relative mx-auto flex max-w-md flex-col",
+        style: { position: "relative", zIndex: 10, gap: "3.5rem" },
+        children: st.events.map((n, idx) => {
+          const isLight = n.theme === "light";
+          const hasBg = !!n.bgImage;
+          const topMask = isLight
+            ? "linear-gradient(to bottom, black 19%, transparent 31%)"
+            : "linear-gradient(to bottom, black 24%, transparent 38%)";
+          const botMask = isLight
+            ? "linear-gradient(to top, black 43%, transparent 57%)"
+            : "linear-gradient(to top, black 46%, transparent 60%)";
+
+          return A.jsxs(We, {
             "code-path": "src/sections/Events.tsx:17:7",
             key: n.name + idx,
             className: "relative mx-auto w-full",
@@ -94,145 +103,242 @@ Please change the parent <Route path="${R}"> to <Route path="${R==="/"?"*":`${R}
                 "code-path": "src/sections/Events.tsx:19:9",
                 className: "absolute left-1/2 top-1/2 -z-10 h-[105%] w-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[70px]",
                 style: {
-                  background: "radial-gradient(circle, rgba(238,178,192,0.2), rgba(99,102,241,0.12) 55%, transparent 75%)",
+                  background: isLight
+                    ? "radial-gradient(circle, rgba(251,191,36,0.22), rgba(245,158,11,0.12) 55%, transparent 75%)"
+                    : "radial-gradient(circle, rgba(238,178,192,0.2), rgba(99,102,241,0.12) 55%, transparent 75%)",
                   animation: "arch-glow 5s ease-in-out infinite"
                 }
               }),
               A.jsxs("div", {
                 "code-path": "src/sections/Events.tsx:28:9",
-                className: "relative overflow-hidden rounded-t-[11rem] rounded-b-[2.5rem] border border-[#e2c88f]/40 px-6 pb-10 pt-12 text-center shadow-[0_10px_40px_rgba(0,0,0,0.45)]",
-                style: {
+                className: "relative overflow-hidden rounded-t-[11rem] rounded-b-[2.5rem] border px-6 text-center shadow-[0_10px_40px_rgba(0,0,0,0.45)]",
+                style: hasBg ? {
+                  backgroundColor: n.bgColor || (isLight ? "#feebca" : "#0d0a27"),
+                  borderColor: isLight ? "rgba(180, 110, 20, 0.45)" : "rgba(226, 200, 143, 0.45)",
+                  paddingTop: isLight ? "5rem" : "5.5rem",
+                  paddingBottom: isLight ? "265px" : "295px"
+                } : {
                   backgroundColor: "rgba(12, 10, 36, 0.62)",
+                  borderColor: "rgba(226, 200, 143, 0.4)",
                   backdropFilter: "blur(10px)",
-                  WebkitBackdropFilter: "blur(10px)"
+                  WebkitBackdropFilter: "blur(10px)",
+                  paddingTop: "3rem",
+                  paddingBottom: "2.5rem"
                 },
                 children: [
+                  hasBg ? A.jsx("img", {
+                    src: n.bgImage,
+                    alt: "",
+                    style: {
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "auto",
+                      pointerEvents: "none",
+                      WebkitMaskImage: topMask,
+                      maskImage: topMask,
+                      zIndex: 0
+                    }
+                  }) : null,
+                  hasBg ? A.jsx("img", {
+                    src: n.bgImage,
+                    alt: "",
+                    style: {
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "auto",
+                      pointerEvents: "none",
+                      WebkitMaskImage: botMask,
+                      maskImage: botMask,
+                      zIndex: 0
+                    }
+                  }) : null,
+                  hasBg && !isLight ? A.jsx("div", {
+                    style: {
+                      position: "absolute",
+                      inset: 0,
+                      background: "radial-gradient(circle at 50% 42%, rgba(13,10,39,0.45) 0%, rgba(13,10,39,0.15) 65%, transparent 100%)",
+                      pointerEvents: "none",
+                      zIndex: 0
+                    }
+                  }) : null,
                   A.jsx("div", {
                     "code-path": "src/sections/Events.tsx:30:11",
-                    className: "pointer-events-none absolute inset-2.5 rounded-t-[10rem] rounded-b-[2rem] border border-[#e2c88f]/20"
-                  }),
-                  A.jsx(ft.div, {
-                    "code-path": "src/sections/Events.tsx:33:11",
-                    animate: { scale: [1, 1.18, 1] },
-                    transition: { duration: 1.6, repeat: 1 / 0, ease: "easeInOut" },
-                    className: "mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[#eeb2c0]/50 bg-[#17143c] shadow-[0_0_28px_rgba(238,178,192,0.4)]",
-                    children: A.jsx(YM, {
-                      "code-path": "src/sections/Events.tsx:38:13",
-                      size: 26,
-                      className: "fill-[#eeb2c0] text-[#eeb2c0]"
-                    })
-                  }),
-                  A.jsx("h3", {
-                    "code-path": "src/sections/Events.tsx:39:11",
-                    className: "font-display text-gold mt-4 text-xl font-semibold tracking-wider uppercase px-2",
-                    children: n.name
-                  }),
-                  n.subtitle ? A.jsx("p", {
-                    "code-path": "src/sections/Events.tsx:40:11",
-                    className: "font-display text-sm italic tracking-wide text-[#f5eee2]/75 mt-1",
-                    children: n.subtitle
-                  }) : null,
-                  A.jsx("p", {
-                    "code-path": "src/sections/Events.tsx:42:11",
-                    className: "mt-5 text-[12px] uppercase tracking-[0.4em] text-[#eeb2c0]",
-                    children: n.dayLabel
-                  }),
-                  A.jsx("p", {
-                    "code-path": "src/sections/Events.tsx:45:11",
-                    className: "font-display text-gold mt-1 text-8xl font-semibold leading-none",
-                    children: n.dayNum
-                  }),
-                  A.jsx("p", {
-                    "code-path": "src/sections/Events.tsx:48:11",
-                    className: "font-display mt-2 text-xl tracking-[0.2em] text-[#f5eee2]",
-                    children: n.monthLabel
-                  }),
-                  A.jsx("div", {
-                    "code-path": "src/sections/Events.tsx:52:11",
-                    className: "hairline-blush mx-auto mt-6 w-28"
+                    className: "pointer-events-none absolute inset-2.5 rounded-t-[10rem] rounded-b-[2rem] border",
+                    style: {
+                      borderColor: isLight ? "rgba(180, 110, 20, 0.25)" : "rgba(226, 200, 143, 0.22)",
+                      zIndex: 1
+                    }
                   }),
                   A.jsxs("div", {
-                    "code-path": "src/sections/Events.tsx:55:11",
-                    className: "mt-6 flex flex-col items-center gap-2.5",
+                    style: { position: "relative", zIndex: 2 },
                     children: [
-                      A.jsxs("p", {
-                        "code-path": "src/sections/Events.tsx:56:13",
-                        className: "flex items-center gap-2.5 font-display text-2xl text-[#f6e2ae]",
-                        children: [
-                          A.jsx(BM, {
-                            "code-path": "src/sections/Events.tsx:57:15",
-                            size: 20,
-                            className: "text-[#eeb2c0]"
-                          }),
-                          n.time
-                        ]
+                      A.jsx(ft.div, {
+                        "code-path": "src/sections/Events.tsx:33:11",
+                        animate: { scale: [1, 1.18, 1] },
+                        transition: { duration: 1.6, repeat: 1 / 0, ease: "easeInOut" },
+                        className: "mx-auto flex h-16 w-16 items-center justify-center rounded-full border",
+                        style: isLight ? {
+                          borderColor: "rgba(180, 83, 9, 0.45)",
+                          backgroundColor: "rgba(255, 248, 230, 0.92)",
+                          boxShadow: "0 0 24px rgba(217, 119, 6, 0.3)"
+                        } : {
+                          borderColor: "rgba(238, 178, 192, 0.5)",
+                          backgroundColor: "#17143c",
+                          boxShadow: "0 0 28px rgba(238, 178, 192, 0.4)"
+                        },
+                        children: A.jsx(YM, {
+                          "code-path": "src/sections/Events.tsx:38:13",
+                          size: 26,
+                          style: isLight ? { fill: "#d97706", color: "#b45309" } : { fill: "#eeb2c0", color: "#eeb2c0" }
+                        })
                       }),
-                      A.jsxs("p", {
-                        "code-path": "src/sections/Events.tsx:60:13",
-                        className: "flex items-center gap-2 text-[14px] font-medium tracking-wide text-[#f5eee2]",
-                        children: [
-                          A.jsx(R1, {
-                            "code-path": "src/sections/Events.tsx:61:15",
-                            size: 15,
-                            className: "text-[#eeb2c0]"
-                          }),
-                          n.venue
-                        ]
+                      A.jsx("h3", {
+                        "code-path": "src/sections/Events.tsx:39:11",
+                        className: isLight
+                          ? "font-display mt-4 text-xl font-semibold tracking-wider uppercase px-2"
+                          : "font-display text-gold mt-4 text-xl font-semibold tracking-wider uppercase px-2",
+                        style: isLight ? { color: "#6d2809" } : void 0,
+                        children: n.name
                       }),
-                      n.address ? A.jsx("p", {
-                        "code-path": "src/sections/Events.tsx:63:13",
-                        className: "text-[12px] text-[#f5eee2]/70 max-w-xs",
-                        children: n.address
+                      n.subtitle ? A.jsx("p", {
+                        "code-path": "src/sections/Events.tsx:40:11",
+                        className: "font-display text-sm italic tracking-wide mt-1",
+                        style: { color: isLight ? "#5c3a1e" : "rgba(245, 238, 226, 0.78)" },
+                        children: n.subtitle
                       }) : null,
-                      n.note ? A.jsx("p", {
-                        "code-path": "src/sections/Events.tsx:64:13",
-                        className: "mt-2 max-w-xs font-display text-base italic leading-relaxed text-[#f5eee2]/70",
-                        children: n.note
-                      }) : null,
-                      n.mapsUrl ? A.jsxs("a", {
-                        "code-path": "src/sections/Events.tsx:65:13",
-                        href: n.mapsUrl,
-                        target: "_blank",
-                        rel: "noreferrer",
-                        className: "mt-3 inline-flex items-center gap-2 rounded-full border border-[#e2c88f]/40 bg-[#e2c88f]/10 px-5 py-2 text-[11px] uppercase tracking-[0.2em] text-[#f6e2ae] transition-all hover:bg-[#e2c88f]/20 active:scale-95",
+                      A.jsx("p", {
+                        "code-path": "src/sections/Events.tsx:42:11",
+                        className: "mt-5 text-[12px] uppercase tracking-[0.4em]",
+                        style: { color: isLight ? "#9a4a09" : "#eeb2c0", fontWeight: isLight ? 600 : 400 },
+                        children: n.dayLabel
+                      }),
+                      A.jsx("p", {
+                        "code-path": "src/sections/Events.tsx:45:11",
+                        className: isLight
+                          ? "font-display mt-1 text-8xl font-semibold leading-none"
+                          : "font-display text-gold mt-1 text-8xl font-semibold leading-none",
+                        style: isLight ? { color: "#9a5406" } : void 0,
+                        children: n.dayNum
+                      }),
+                      A.jsx("p", {
+                        "code-path": "src/sections/Events.tsx:48:11",
+                        className: "font-display mt-2 text-xl tracking-[0.2em]",
+                        style: { color: isLight ? "#3d2310" : "#f5eee2" },
+                        children: n.monthLabel
+                      }),
+                      A.jsx("div", {
+                        "code-path": "src/sections/Events.tsx:52:11",
+                        className: "hairline-blush mx-auto mt-6 w-28",
+                        style: isLight ? { background: "linear-gradient(90deg, transparent, rgba(154,84,6,0.45), transparent)" } : void 0
+                      }),
+                      A.jsxs("div", {
+                        "code-path": "src/sections/Events.tsx:55:11",
+                        className: "mt-6 flex flex-col items-center gap-2.5",
                         children: [
-                          A.jsx(QM, {
-                            "code-path": "src/sections/Events.tsx:66:15",
-                            size: 13,
-                            className: "text-[#eeb2c0]"
+                          n.time ? A.jsxs("p", {
+                            "code-path": "src/sections/Events.tsx:56:13",
+                            className: "flex items-center gap-2.5 font-display text-2xl",
+                            style: { color: isLight ? "#6d2809" : "#f6e2ae", fontWeight: isLight ? 600 : 400 },
+                            children: [
+                              A.jsx(BM, {
+                                "code-path": "src/sections/Events.tsx:57:15",
+                                size: 20,
+                                style: { color: isLight ? "#b45309" : "#eeb2c0" }
+                              }),
+                              n.time
+                            ]
+                          }) : null,
+                          A.jsxs("p", {
+                            "code-path": "src/sections/Events.tsx:60:13",
+                            className: "flex items-center gap-2 text-[14px] font-medium tracking-wide",
+                            style: { color: isLight ? "#2b1708" : "#f5eee2" },
+                            children: [
+                              A.jsx(R1, {
+                                "code-path": "src/sections/Events.tsx:61:15",
+                                size: 15,
+                                style: { color: isLight ? "#b45309" : "#eeb2c0" }
+                              }),
+                              n.venue
+                            ]
                           }),
-                          " View on Map"
+                          n.address ? A.jsx("p", {
+                            "code-path": "src/sections/Events.tsx:63:13",
+                            className: "text-[12px] max-w-xs",
+                            style: { color: isLight ? "#4a2f18" : "rgba(245, 238, 226, 0.72)" },
+                            children: n.address
+                          }) : null,
+                          n.note ? A.jsx("p", {
+                            "code-path": "src/sections/Events.tsx:64:13",
+                            className: "mt-2 max-w-xs font-display text-base italic leading-relaxed",
+                            style: { color: isLight ? "#4a2f18" : "rgba(245, 238, 226, 0.75)" },
+                            children: n.note
+                          }) : null,
+                          n.mapsUrl ? A.jsxs("a", {
+                            "code-path": "src/sections/Events.tsx:65:13",
+                            href: n.mapsUrl,
+                            target: "_blank",
+                            rel: "noreferrer",
+                            className: "mt-3 inline-flex items-center gap-2 rounded-full border px-5 py-2 text-[11px] uppercase tracking-[0.2em] transition-all active:scale-95",
+                            style: isLight ? {
+                              borderColor: "rgba(120, 53, 15, 0.45)",
+                              backgroundColor: "rgba(255, 248, 230, 0.85)",
+                              color: "#4a2408",
+                              fontWeight: 600
+                            } : {
+                              borderColor: "rgba(226, 200, 143, 0.45)",
+                              backgroundColor: "rgba(226, 200, 143, 0.14)",
+                              color: "#f6e2ae"
+                            },
+                            children: [
+                              A.jsx(QM, {
+                                "code-path": "src/sections/Events.tsx:66:15",
+                                size: 13,
+                                style: { color: isLight ? "#b45309" : "#eeb2c0" }
+                              }),
+                              " View on Map"
+                            ]
+                          }) : null
                         ]
-                      }) : null
+                      })
                     ]
                   })
                 ]
               }),
               n.program && n.program.length ? A.jsxs("div", {
                 "code-path": "src/sections/Events.tsx:71:9",
-                className: "relative mx-auto mt-8 max-w-xs rounded-2xl px-5 py-5",
+                className: "relative mx-auto w-full rounded-3xl border shadow-[0_12px_40px_rgba(0,0,0,0.45)]",
                 style: {
-                  backgroundColor: "rgba(12, 10, 36, 0.65)",
-                  backdropFilter: "blur(8px)",
-                  WebkitBackdropFilter: "blur(8px)"
+                  marginTop: "2.75rem",
+                  marginBottom: "0.75rem",
+                  padding: "2.25rem 1.75rem",
+                  borderColor: "rgba(226, 200, 143, 0.4)",
+                  backgroundColor: "rgba(12, 10, 36, 0.78)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)"
                 },
                 children: [
                   A.jsx("p", {
                     "code-path": "src/sections/Events.tsx:72:11",
-                    className: "mb-5 text-center text-[11px] uppercase tracking-[0.4em] text-[#e2c88f]",
+                    className: "text-center uppercase text-[#e2c88f]",
+                    style: { fontSize: "13px", letterSpacing: "0.42em", marginBottom: "1.75rem" },
                     children: "The Ceremony Flow"
                   }),
                   A.jsxs("div", {
                     "code-path": "src/sections/Events.tsx:75:11",
-                    className: "relative",
+                    className: "relative mx-auto max-w-xs",
                     children: [
                       A.jsx("div", {
                         "code-path": "src/sections/Events.tsx:77:13",
-                        className: "absolute bottom-3 left-[5px] top-3 w-px bg-gradient-to-b from-[#e2c88f]/50 via-[#eeb2c0]/40 to-transparent"
+                        style: { position: "absolute", left: "5px", top: "0.75rem", bottom: "0.75rem", width: "1px", background: "linear-gradient(to bottom, rgba(226,200,143,0.65), rgba(238,178,192,0.55), transparent)" }
                       }),
                       A.jsx("div", {
                         "code-path": "src/sections/Events.tsx:78:13",
-                        className: "flex flex-col gap-5",
+                        className: "flex flex-col",
+                        style: { gap: "1.5rem" },
                         children: n.program.map((a, l) => A.jsxs(ft.div, {
                           "code-path": "src/sections/Events.tsx:80:17",
                           initial: { opacity: 0, x: -18 },
@@ -243,16 +349,17 @@ Please change the parent <Route path="${R}"> to <Route path="${R==="/"?"*":`${R}
                           children: [
                             A.jsx("span", {
                               "code-path": "src/sections/Events.tsx:88:19",
-                              className: "absolute left-0 top-1.5 h-[11px] w-[11px] rounded-full bg-[#eeb2c0] shadow-[0_0_10px_2px_rgba(238,178,192,0.5)]"
+                              style: { position: "absolute", left: 0, top: "0.45rem", width: "11px", height: "11px", borderRadius: "9999px", backgroundColor: "#eeb2c0", boxShadow: "0 0 12px 3px rgba(238,178,192,0.55)" }
                             }),
                             A.jsx("span", {
                               "code-path": "src/sections/Events.tsx:91:19",
-                              className: "font-display text-lg text-[#f5eee2]",
+                              className: "font-display text-xl text-[#f5eee2]",
                               children: a.name
                             }),
                             A.jsx("span", {
                               "code-path": "src/sections/Events.tsx:94:19",
-                              className: "shrink-0 text-[12px] uppercase tracking-[0.15em] text-[#e2c88f]",
+                              className: "shrink-0 uppercase tracking-[0.15em] text-[#e2c88f]",
+                              style: { fontSize: "13px", fontWeight: 500 },
                               children: a.time
                             })
                           ]
@@ -263,8 +370,8 @@ Please change the parent <Route path="${R}"> to <Route path="${R==="/"?"*":`${R}
                 ]
               }) : null
             ]
-          })
-        )
+          });
+        })
       })
     ]
   });
