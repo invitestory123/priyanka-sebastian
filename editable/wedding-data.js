@@ -73,6 +73,11 @@ window.WEDDING_DATA = {
       address: "9, New Kalimati Rd, Sakchi, Jamshedpur, Jharkhand 831007",
       mapsUrl: "https://maps.app.goo.gl/argdM2LVBX6wGsiN9",
       note: "An enchanting evening of rings, rhythm, dance, and music to begin our wedding celebrations.",
+      bgImage: "./editable/assets/events-bg.webp",
+      bgColor: "#000f2e",
+      theme: "dark",
+      topMask: "linear-gradient(to bottom, black 25%, transparent 37%)",
+      botMask: "linear-gradient(to top, black 42%, transparent 54%)",
     },
     {
       name: "THE GOLDEN SOIRÉE",
