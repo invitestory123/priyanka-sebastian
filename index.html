@@ -30,6 +30,52 @@
     <link rel="stylesheet" crossorigin href="assets/index-3-78T76B.css">
 
     <style>
+      /* Keep horizontal overflow clipped without breaking position:sticky */
+      html, body {
+        overflow-x: clip !important;
+      }
+
+      /* Events sticky background artwork */
+      .events-bg-artwork {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 560px;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.85;
+      }
+      @media (min-width: 560px) {
+        .events-bg-artwork {
+          -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+          mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+      }
+
+      /* Keep Hero top garland proportioned on wide desktop screens */
+      .hero-garland-desktop {
+        display: none;
+      }
+      @media (min-width: 768px) {
+        .hero-garland-mobile {
+          display: none !important;
+        }
+        .hero-garland-desktop {
+          display: block;
+          width: 100%;
+          height: 225px;
+          background-image: url("external/media.invitestory.in/midnight-stargaze/assets/garland-top.webp");
+          background-repeat: repeat-x;
+          background-position: top center;
+          background-size: auto 225px;
+          opacity: 0.95;
+          transform-origin: top center;
+          animation: hang-sway 9s ease-in-out infinite;
+        }
+      }
+
       /* Floating BGM Controller */
       .bgm-floating-btn {
         position: fixed;

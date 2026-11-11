@@ -31,7 +31,7 @@ window.WEDDING_DATA = {
 
   verse: {
     hindi: "॥ श्री गणेशाय नमः ॥",
-    text: "Together with their families, request the honour of your presence as two souls unite under a starry sky to begin their journey of love and togetherness.",
+    text: "Together with their families, request the honour of your presence as two hearts unite in a beautiful celebration of love, promises, and forever.",
   },
 
   events: [
@@ -120,5 +120,6 @@ window.WEDDING_DATA = {
     couple: "./editable/assets/couple.webp",
     venue: "./editable/assets/venue-palace.webp",
     ganesha: "./editable/assets/ganesha.png",
+    eventsBg: "./editable/assets/events-bg.webp",
   },
 };
