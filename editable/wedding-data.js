@@ -11,7 +11,7 @@ window.WEDDING_DATA = {
     brideFull: "Dr. Priyanka Mitra",
     groomParents: "Son of Smt. Sumita & Prof. Dhananjoy Chatterjee",
     brideParents: "Daughter of Smt. Soma & Shri Kalyan Mitra",
-    hashtag: "#PriyankaWedsSabyasachi",
+    hashtag: "#sabpriyahhai",
     monogram: "P · S",
     families: "With love, the Mitra & Chatterjee families",
   },
@@ -28,6 +28,31 @@ window.WEDDING_DATA = {
     mapsQuery: "Vivanta Jamshedpur Golmuri Jharkhand",
     mapsUrl: "https://maps.app.goo.gl/JAtRZ7v5vmvfTYrz8",
   },
+
+  venues: [
+    {
+      id: "wedding",
+      tabLabel: "Wedding · 29 Jan",
+      title: "Wedding Ceremony",
+      dateLabel: "Friday, 29th January 2027",
+      dateISO: "2027-01-29T18:00:00+05:30",
+      name: "Vivanta, Jamshedpur",
+      address: "Golmuri Rd, Punjabi Refugee Colony, Golmuri, Jamshedpur, Jharkhand 831003",
+      mapsQuery: "Vivanta Jamshedpur Golmuri Jharkhand",
+      mapsUrl: "https://maps.app.goo.gl/JAtRZ7v5vmvfTYrz8",
+    },
+    {
+      id: "reception",
+      tabLabel: "Reception · 1 Feb",
+      title: "Reception Night",
+      dateLabel: "Monday, 1st February 2027",
+      dateISO: "2027-02-01T19:00:00+05:30",
+      name: "Sinclairs, Bardhaman",
+      address: "Renaissance Township, High Street 1, NH-2, Bardhaman, West Bengal 713104",
+      mapsQuery: "Sinclairs Burdwan Renaissance Township Bardhaman West Bengal",
+      mapsUrl: "https://maps.app.goo.gl/StHNmRect7d74pd98?g_st=ac",
+    },
+  ],
 
   verse: {
     hindi: "॥ श्री गणेशाय नमः ॥",
@@ -100,6 +125,11 @@ window.WEDDING_DATA = {
       address: "Renaissance Township, High Street 1, NH-2, Bardhaman, West Bengal 713104",
       mapsUrl: "https://maps.app.goo.gl/StHNmRect7d74pd98?g_st=ac",
       note: "A grand evening feast and celebration to bless the newlyweds as they embark on their new journey.",
+      bgImage: "./editable/assets/reception-bg.webp",
+      bgColor: "#020d2c",
+      theme: "dark",
+      topMask: "linear-gradient(to bottom, black 28%, transparent 40%)",
+      botMask: "linear-gradient(to top, black 44%, transparent 56%)",
     },
   ],
 
@@ -110,10 +140,10 @@ window.WEDDING_DATA = {
 
   music: {
     url: "editable/assets/bgm.mp3",
-    title: "Made In Heaven - Theme",
-    artist: "Gaurav Raina & Komorebi",
-    startSeconds: 40,
-    spotifyUrl: "https://open.spotify.com/track/5uSgmJU6MeoFTIYaJQOV5K",
+    title: "Tumhi Dekho Naa - Sitar Lofi",
+    artist: "Rishab Rikhiram Sharma & Shankar-Ehsaan-Loy",
+    startSeconds: 43,
+    spotifyUrl: "https://open.spotify.com/track/3fc3piWEXs8OoJ0oTIrs5V",
   },
 
   sections: {
@@ -127,5 +157,6 @@ window.WEDDING_DATA = {
     venue: "./editable/assets/venue-palace.webp",
     ganesha: "./editable/assets/ganesha.png",
     eventsBg: "./editable/assets/events-bg.webp",
+    receptionBg: "./editable/assets/reception-bg.webp",
   },
 };
