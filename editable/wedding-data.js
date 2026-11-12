@@ -110,7 +110,7 @@ window.WEDDING_DATA = {
       mapsUrl: "https://maps.app.goo.gl/JAtRZ7v5vmvfTYrz8",
       note: "The sacred vows, seven holy pheras, and the blessed beginning of eternal togetherness.",
       bgImage: "./editable/assets/wedding-bg.webp",
-      bgColor: "#0d0a27",
+      bgColor: "#0a0a2c",
       theme: "dark",
       program: [
         { name: "Baraat Arrival", time: "6:00 PM" },
