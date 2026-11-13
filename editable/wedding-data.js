@@ -78,6 +78,7 @@ window.WEDDING_DATA = {
       theme: "dark",
       topMask: "linear-gradient(to bottom, black 25%, transparent 37%)",
       botMask: "linear-gradient(to top, black 42%, transparent 54%)",
+      paddingBottom: "410px",
     },
     {
       name: "THE GOLDEN SOIRÉE",
@@ -95,6 +96,7 @@ window.WEDDING_DATA = {
       bgImage: "./editable/assets/haldi-bg.webp",
       bgColor: "#feebca",
       theme: "light",
+      paddingBottom: "360px",
     },
     {
       name: "THE SACRED UNION",
@@ -112,6 +114,7 @@ window.WEDDING_DATA = {
       bgImage: "./editable/assets/wedding-bg.webp",
       bgColor: "#0a0a2c",
       theme: "dark",
+      paddingBottom: "390px",
       program: [
         { name: "Baraat Arrival", time: "6:00 PM" },
         { name: "Pheras & Sacred Vows", time: "8:00 PM" },
@@ -135,6 +138,7 @@ window.WEDDING_DATA = {
       theme: "dark",
       topMask: "linear-gradient(to bottom, black 28%, transparent 40%)",
       botMask: "linear-gradient(to top, black 44%, transparent 56%)",
+      paddingBottom: "390px",
     },
   ],
 

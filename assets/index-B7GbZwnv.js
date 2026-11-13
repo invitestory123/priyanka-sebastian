@@ -95,7 +95,7 @@ Please change the parent <Route path="${R}"> to <Route path="${R==="/"?"*":`${R}
                   backgroundColor: n.bgColor || (isLight ? "#feebca" : "#0d0a27"),
                   borderColor: isLight ? "rgba(180, 110, 20, 0.45)" : "rgba(226, 200, 143, 0.45)",
                   paddingTop: isLight ? "5rem" : "5.5rem",
-                  paddingBottom: isLight ? "265px" : "295px"
+                  paddingBottom: n.paddingBottom || (isLight ? "360px" : "390px")
                 } : {
                   backgroundColor: "rgba(12, 10, 36, 0.62)",
                   borderColor: "rgba(226, 200, 143, 0.4)",
