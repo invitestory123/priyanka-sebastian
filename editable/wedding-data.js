@@ -24,7 +24,7 @@ window.WEDDING_DATA = {
 
   venue: {
     name: "Vivanta, Jamshedpur",
-    address: "Golmuri Rd, Punjabi Refugee Colony, Golmuri, Jamshedpur, Jharkhand 831003",
+    address: "Golmuri Rd, Golmuri, Jamshedpur, Jharkhand 831003",
     mapsQuery: "Vivanta Jamshedpur Golmuri Jharkhand",
     mapsUrl: "https://maps.app.goo.gl/JAtRZ7v5vmvfTYrz8",
   },
@@ -37,7 +37,7 @@ window.WEDDING_DATA = {
       dateLabel: "Friday, 29th January 2027",
       dateISO: "2027-01-29T18:00:00+05:30",
       name: "Vivanta, Jamshedpur",
-      address: "Golmuri Rd, Punjabi Refugee Colony, Golmuri, Jamshedpur, Jharkhand 831003",
+      address: "Golmuri Rd, Golmuri, Jamshedpur, Jharkhand 831003",
       mapsQuery: "Vivanta Jamshedpur Golmuri Jharkhand",
       mapsUrl: "https://maps.app.goo.gl/JAtRZ7v5vmvfTYrz8",
     },
@@ -108,7 +108,7 @@ window.WEDDING_DATA = {
       monthLabel: "January 2027",
       time: "",
       venue: "Vivanta, Jamshedpur",
-      address: "Golmuri Rd, Punjabi Refugee Colony, Golmuri, Jamshedpur, Jharkhand 831003",
+      address: "Golmuri Rd, Golmuri, Jamshedpur, Jharkhand 831003",
       mapsUrl: "https://maps.app.goo.gl/JAtRZ7v5vmvfTYrz8",
       note: "The sacred vows, seven holy pheras, and the blessed beginning of eternal togetherness.",
       bgImage: "./editable/assets/wedding-bg.webp",
